@@ -1,12 +1,8 @@
 FROM mjgargani/puppeteer:trybe1.0 AS todotests
 
-ADD ./node_modules.tar.gz ./
+WORKDIR /app
 
-WORKDIR /docker/todo-app/tests
-
-COPY package*.json ./
-
-RUN ["npm", "install"]
+ADD node_modules.tar.gz .
 
 COPY . .
 

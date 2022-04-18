@@ -1,12 +1,8 @@
 FROM node:14-alpine AS todobackend
 
-ADD ./node_modules.tar.gz ./
+WORKDIR /app
 
-WORKDIR /docker/todo-app/back-end
-
-COPY package*.json ./
-
-RUN ["npm", "install"]
+ADD node_modules.tar.gz .
 
 COPY . .
 
